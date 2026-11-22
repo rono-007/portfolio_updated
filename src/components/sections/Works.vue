@@ -26,8 +26,8 @@
         <p
           class="heading-4 font-fancy col-span-8 w-full text-balance sm:font-semibold lg:col-span-7"
         >
-          Featured client projects that have been meticulously crafted with
-          passion and purpose over the years.
+          Featured projects spanning artificial intelligence, machine learning,
+          generative AI, and full-stack engineering.
         </p>
       </div>
     </div>
@@ -48,62 +48,104 @@
       <aside
         @mouseenter="showCursor"
         @mouseleave="hideCursor"
-        class="relative col-span-full flex flex-col space-y-10 md:col-span-7"
+        class="relative col-span-full flex flex-col space-y-12 md:col-span-7"
       >
         <div
           v-for="(work, i) in selectedWorksProps"
           :key="i"
           class="work-card @container"
         >
-          <a class="group" target="_blank" :href="work.url">
-            <div
-              class="flex-center relative aspect-square overflow-clip rounded-lg"
+          <div class="group">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              :href="work.url"
+              class="block"
             >
-              <img
-                alt="work-background"
-                loading="lazy"
-                class="absolute size-full object-cover select-none"
-                :src="work.imageBg"
-              />
               <div
-                class="flex-center z-10 aspect-4/3 size-full overflow-clip rounded-lg object-cover"
+                class="flex-center relative aspect-square overflow-clip rounded-lg"
               >
-                <!-- autoplay="false" -->
-                <video
-                  ref="videoRefs"
-                  :src="work.videoSrc"
-                  muted
-                  :autoplay="false"
-                  type="video/webm"
-                  class="size-[80%] rounded-md object-contain blur transition-all duration-500 ease-in-out"
-                ></video>
+                <img
+                  alt="work-background"
+                  loading="lazy"
+                  class="absolute size-full object-cover select-none"
+                  :src="work.imageBg"
+                />
+                <div
+                  class="flex-center z-10 aspect-4/3 size-full overflow-clip rounded-lg object-cover"
+                >
+                  <video
+                    ref="videoRefs"
+                    :src="work.videoSrc"
+                    muted
+                    :autoplay="false"
+                    type="video/webm"
+                    class="size-[80%] rounded-md object-contain blur transition-all duration-500 ease-in-out"
+                  ></video>
+                </div>
               </div>
-            </div>
-            <div>
-              <p class="heading-6 font-title! mt-[2%] mb-[1%] leading-none">
-                {{ work.category }}
-              </p>
+            </a>
+
+            <div class="mt-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <p class="heading-6 font-title! text-flax-smoke-300 font-semibold tracking-wide">
+                  {{ work.category }}
+                </p>
+                <div v-if="work.links" class="flex items-center gap-2">
+                  <a
+                    v-if="work.links.live"
+                    :href="work.links.live"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border-flax-smoke-400 hover:bg-flax-smoke-200 hover:text-black rounded-full border px-3 py-1 text-xs uppercase font-medium transition-colors"
+                  >
+                    Live Demo ↗
+                  </a>
+                  <a
+                    v-if="work.links.github"
+                    :href="work.links.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border-flax-smoke-400 hover:bg-flax-smoke-200 hover:text-black rounded-full border px-3 py-1 text-xs uppercase font-medium transition-colors"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+
               <div class="items-center justify-between sm:flex">
-                <h3 class="heading-3 font-title! font-bold uppercase">
+                <a
+                  :href="work.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="heading-3 font-title! font-bold uppercase hover:text-flax-smoke-400 transition-colors"
+                >
                   {{ work.name }}
-                </h3>
-                <div class="flex gap-1.5 select-none">
+                </a>
+                <div class="flex flex-wrap gap-1.5 select-none mt-2 sm:mt-0">
                   <p
-                    class="border-flax-smoke-300 hover:bg-flax-smoke-300 hover:text-flax-smoke-900 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out"
+                    class="border-flax-smoke-300 hover:bg-flax-smoke-300 hover:text-flax-smoke-900 rounded-full border px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 transition-[background-color,color] duration-500 ease-in-out"
                     v-for="tag in work.tags"
                     :key="tag"
                   >
                     <span>{{ tag }}</span>
                   </p>
                   <p
-                    class="border-flax-smoke-300 bg-flax-smoke-300 text-flax-smoke-900 hover:text-flax-smoke-300 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent"
+                    class="border-flax-smoke-300 bg-flax-smoke-300 text-flax-smoke-900 hover:text-flax-smoke-300 rounded-full border px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent"
                   >
                     <span>{{ work.year }}</span>
                   </p>
                 </div>
               </div>
+
+              <p
+                v-if="work.description"
+                class="heading-6 font-fancy text-flax-smoke-300/85 mt-3 max-w-[65ch] leading-relaxed"
+              >
+                {{ work.description }}
+              </p>
             </div>
-          </a>
+          </div>
         </div>
       </aside>
     </div>
@@ -143,50 +185,89 @@
 
   const selectedWorksProps = [
     {
-      name: 'Madar',
-      category: 'Frontend',
-      tags: ['Vue.js', 'Tailwind', 'Gsap'],
-      videoSrc: work5,
-      imageBg: workBg5,
-      url: 'https://madar.services/',
-      year: '2025',
-    },
-    {
-      name: 'Iphone 15 Clone',
-      category: 'Frontend & Animation & 3D',
-      tags: ['Animation', '3D'],
-      videoSrc: work2,
-      imageBg: workBg2,
-      url: 'https://github.com/Hetari/iphone15-pro-clone',
-      year: '2024',
-    },
-    {
-      name: 'Axon',
-      category: 'Frontend & Documentation',
-      tags: ['Vue.js', 'Tailwind', 'AI'],
+      name: 'Akkhor',
+      category: 'Bengali Typography Foundry & Digital Platform',
+      description:
+        'A Bengali typography platform for discovering fonts, exploring glyphs and viewing typography specimens.',
+      tags: ['Typography', 'Foundry', 'Glyph Explorer'],
       videoSrc: work3,
       imageBg: workBg3,
-      url: 'https://github.com/Hetari/axon',
-
-      year: '2024',
+      url: 'https://github.com/rono-007',
+      year: '2025',
+      links: {
+        github: 'https://github.com/rono-007',
+      },
     },
     {
-      name: 'Blogy',
-      category: 'Frontend & Backend',
-      tags: ['Vue.js', 'Laravel'],
-      videoSrc: work4,
-      imageBg: workBg4,
-      url: 'https://github.com/Hetari/blog',
-      year: '2023',
-    },
-    {
-      name: 'Pyutube',
-      category: 'CLI Tool & Cross Platform',
-      tags: ['Python', 'CLI', 'Youtube'],
+      name: 'Stock-Wise',
+      category: 'ML-Powered Inventory Optimization',
+      description:
+        'Machine learning-based demand forecasting and inventory recommendations using LightGBM and XGBoost.',
+      tags: ['Machine Learning', 'LightGBM', 'XGBoost'],
       videoSrc: work1,
       imageBg: workBg1,
-      url: 'https://github.com/hetari/pyutube',
+      url: 'https://github.com/rono-007',
       year: '2024',
+      links: {
+        github: 'https://github.com/rono-007',
+      },
+    },
+    {
+      name: 'CareerFlow',
+      category: 'AI-Powered Career Management Platform',
+      description:
+        'Resume analysis, ATS scoring, candidate ranking and career-management workflows.',
+      tags: ['AI', 'ATS Scoring', 'Candidate Ranking'],
+      videoSrc: work5,
+      imageBg: workBg5,
+      url: 'https://github.com/rono-007',
+      year: '2024',
+      links: {
+        github: 'https://github.com/rono-007',
+      },
+    },
+    {
+      name: 'eDNA Biodiversity Analysis',
+      category: 'AI-Based Biodiversity Research',
+      description:
+        'Environmental DNA processing, sequence analysis and unsupervised clustering for biodiversity assessment.',
+      tags: ['Bioinformatics', 'Sequence Analysis', 'Clustering'],
+      videoSrc: work2,
+      imageBg: workBg2,
+      url: 'https://github.com/rono-007',
+      year: '2024',
+      links: {
+        github: 'https://github.com/rono-007',
+      },
+    },
+    {
+      name: 'Ace The Code',
+      category: 'Coding Education Platform',
+      description:
+        'Company-wise programming questions, DSA learning paths and interview preparation.',
+      tags: ['DSA', 'Algorithms', 'EdTech'],
+      videoSrc: work4,
+      imageBg: workBg4,
+      url: 'https://github.com/rono-007',
+      year: '2024',
+      links: {
+        github: 'https://github.com/rono-007',
+      },
+    },
+    {
+      name: 'Shiuli',
+      category: 'Kolkata Durga Puja Discovery Platform',
+      description:
+        'A platform to explore Durga Puja pandals, eateries, metro stations and nearby facilities across Kolkata, with location-based discovery and supporting map functionality.',
+      tags: ['React 19', 'TypeScript', 'Vite', 'Python', 'FastAPI', 'MapLibre GL'],
+      videoSrc: work1,
+      imageBg: workBg5,
+      url: 'https://shiuli.vercel.app',
+      year: '2024',
+      links: {
+        live: 'https://shiuli.vercel.app',
+        github: 'https://github.com/rono-007/Shiuli',
+      },
     },
   ];
 
@@ -281,12 +362,9 @@
         gsap.timeline({ defaults: { duration: 0.7 } }).to(div, {
           scrollTrigger: {
             trigger: div,
-            // start: 'top 40%',
             start: 'top 25%',
-            // end: 'bottom 40%',
             end: 'bottom 25%',
             scrub: 0.01,
-            // markers: true,
             onLeaveBack: () => {
               // Backward scroll animation
               if (index.value !== 0) {

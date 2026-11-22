@@ -14,12 +14,11 @@
         loop
         playsinline
       ></video>
-      <!-- :style="'background-image: url(' + contact + ') !important; '" -->
       <div class="flex-center z-10 flex-col gap-y-10">
         <p
           class="heading-4 text-flax-smoke-300 max-w-[30ch] text-center font-mono"
         >
-          Your design is a masterpiece waiting to become alive.
+          Have an innovative idea or need an AI & full-stack engineer?
         </p>
         <h3
           id="make-it-happen"
@@ -29,13 +28,7 @@
         <div
           class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[3] 2xl:scale-[3.5]"
         >
-          <!-- <Button
-            :data-cal-namespace="dataCalNamespace"
-            :data-cal-link="dataCalLink"
-            :data-cal-config="dataCalConfig"
-            label="Get in touch"
-          /> -->
-          <Button label="Get in touch" url="https://wa.me/967775367671" />
+          <Button label="Get in touch" url="mailto:iemrono2022@gmail.com" />
         </div>
       </div>
       <div
@@ -56,21 +49,21 @@
             <p
               class="border-flax-smoke-300 flex size-full items-center justify-start border-b pr-2 pl-1 font-bold"
             >
-              Working Globally
+              Kolkata, India
             </p>
             <p class="flex size-full items-center justify-start pr-2 pl-1">
-              Available Sep '24
+              Working Globally
             </p>
           </div>
         </div>
 
         <div class="heading-6 text-flax-smoke-500 w-fit">
-          <p class="w-full font-bold uppercase">For further inquiries</p>
+          <p class="w-full font-bold uppercase">For inquiries & collaboration</p>
           <Link
             class="text-flax-smoke-300 h-6 text-right font-medium tracking-wider lowercase"
-            label="hetari4all@gmail"
+            label="iemrono2022@gmail.com"
             :icon="true"
-            url="mailto:hetari4all@gmail"
+            url="mailto:iemrono2022@gmail.com"
           />
         </div>
       </div>
@@ -87,7 +80,6 @@
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { textSplitterIntoChar } from '@/functions';
   import { animateSplitText } from '@/animations';
-  // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
   const makeItHappen = ref("Let's Make it happen");
   onBeforeMount(() => {

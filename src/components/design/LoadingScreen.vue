@@ -22,7 +22,7 @@
           <span
             class="loading-text inline-block translate-y-full will-change-auto"
           >
-            Hetari
+            Ranajoy
           </span>
         </h3>
 
@@ -104,6 +104,14 @@
       targetPath.value,
       isSamsungBrowser,
     );
+
+    // Safeguard timeout to ensure loading screen never blocks page
+    setTimeout(() => {
+      const el = document.getElementById('loading-screen');
+      if (el && el.style.display !== 'none') {
+        el.style.display = 'none';
+      }
+    }, 2400);
   });
 
   // TODO: remove it

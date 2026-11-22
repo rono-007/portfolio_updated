@@ -261,7 +261,7 @@
   const people = [
     {
       quote:
-        'Collaborating with Hetari on multiple projects has been a true pleasure. His exceptional skills, attention to detail, and commitment to quality consistently made him an invaluable asset to the team.',
+        'Collaborating with Ranajoy on machine learning and full-stack projects has been a true pleasure. His exceptional engineering skills, attention to detail, and commitment to quality consistently make him an invaluable asset.',
       author: 'Mohammad AL-Sulami',
       position: 'Full Stack Developer',
       tags: ['Web Development', 'Animation', 'UI/UX'],
@@ -269,7 +269,7 @@
     },
     {
       quote:
-        'Working with Ebraheem on the Axon website has been an exceptional experience. His invaluable support and dedication were crucial in bringing this project to life. Thank you, Ebraheem!',
+        'Working with Ranajoy has been an exceptional experience. His expertise in taking complex models from research to scalable, production-grade applications is truly remarkable.',
       author: 'Esmail Atta',
       position: 'Founder of Axon',
       tags: ['Web Development', 'SEO'],

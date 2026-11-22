@@ -1,5 +1,6 @@
 <template>
-  <component  :is="url ? 'a' : 'button'" 
+  <component
+    :is="url ? 'a' : 'button'"
     @click="()=>{
       if (url) {
         gotoSection(url);
@@ -24,7 +25,7 @@
         >{{ label }}</span
       >
     </span>
-  </component :is="url ? 'a' : 'button'"">
+  </component>
 </template>
 
 <script setup lang="ts">

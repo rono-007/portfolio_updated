@@ -247,9 +247,9 @@ const animateLoadingPath = (
 ) => {
   const tl = gsap.timeline({});
   tl.to('#loading-screen', {
-    delay: 3,
+    delay: 1.0,
     bottom: '100%',
-    duration: 1,
+    duration: 0.8,
     ease: 'power2.inOut',
     onStart: () => {
       setTimeout(() => {
@@ -257,14 +257,18 @@ const animateLoadingPath = (
         samsungErrorModal(isSamsung);
         document.body.classList.remove('stop-scrolling');
         window.scrollTo(0, 0);
-      }, 120);
+      }, 100);
+    },
+    onComplete: () => {
+      gsap.set('#loading-screen', { display: 'none' });
     },
   });
 
+  const pathEl = path?.value || '#loading-screen svg path';
   tl.to(
-    path.value,
+    pathEl,
     {
-      duration: 1,
+      duration: 0.8,
       attr: { d: targetPath },
       ease: 'power2.inOut',
       onComplete: () => {
@@ -322,13 +326,17 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to('#svg-my-en-name g path', {
-    y: 0,
-    delay: 0.2,
-    duration: 1.5,
-    ease: 'power4.inOut',
-    stagger: 0.01,
-  });
+  gsap.fromTo(
+    '#svg-my-en-name .hero-name-group, #svg-my-en-name text, #svg-my-en-name g, #svg-my-en-name g path',
+    { y: 80, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      delay: 0.2,
+      duration: 1.2,
+      ease: 'power4.out',
+    },
+  );
 
   gsap.to('#star', {
     x: 1,

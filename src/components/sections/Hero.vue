@@ -38,8 +38,7 @@
             </div>
 
             <p class="sr-only">
-              A freelance full-stack developer, cutting-edge technologies to
-              deliver comprehensive solutions for your business.
+              Ranajoy Nag - AI Engineer & Full-Stack Developer passionate about building intelligent systems and meaningful digital products.
             </p>
             <p
               v-html="whoAmI"
@@ -49,14 +48,7 @@
 
             <div class="relative origin-left overflow-hidden sm:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
-                <!-- <Button
-                  :data-cal-namespace="dataCalNamespace"
-                  :data-cal-link="dataCalLink"
-                  :data-cal-config="dataCalConfig"
-                  class="contact"
-                  label="Get in touch"
-                /> -->
-                <Button label="Get in touch" url="https://wa.me/967775367671" />
+                <Button label="Get in touch" url="mailto:iemrono2022@gmail.com" />
               </div>
             </div>
           </div>
@@ -69,7 +61,7 @@
             <img
               id="profile-img"
               :src="profile"
-              alt="Ebraheem profile"
+              alt="Ranajoy Nag profile"
               class="size-full scale-90 rounded-lg object-cover object-top brightness-110 grayscale"
             />
           </div>
@@ -85,7 +77,7 @@
               <p
                 class="3xl:text-base block leading-snug font-medium -tracking-tight uppercase"
               >
-                Available for freelance work
+                Available for opportunities
               </p>
               <h3
                 class="3xl:heading-1 heading-1-alt font-fancy block leading-none font-bold -tracking-tight"
@@ -107,10 +99,9 @@
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
   import { getAvailableForWorkDate, textSplitterIntoChar } from '@/functions';
-  // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
 
   const whoAmI = ref(
-    'A freelance full-stack developer, cutting-edge technologies to deliver comprehensive solutions for your business.',
+    'AI Engineer & Full-Stack Developer passionate about building intelligent systems and meaningful digital products.',
   );
   const AvailableForWorkDate = ref('');
 

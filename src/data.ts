@@ -37,43 +37,43 @@ const navbarLinks = [
 
 const socialLinks = [
   {
-    label: 'X',
-    url: 'https://x.com/hetaridev',
-  },
-  {
-    label: 'Telegram',
-    url: 'https://t.me/e_1_e',
-  },
-  {
     label: 'GitHub',
-    url: 'https://github.com/hetari',
+    url: 'https://github.com/rono-007',
   },
   {
     label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/hetaridev/',
+    url: 'https://www.linkedin.com/in/Ranajoy-Nag',
+  },
+  {
+    label: 'Email',
+    url: 'mailto:iemrono2022@gmail.com',
   },
 ];
 
 const resourceLinks = [
   {
-    label: 'Pillarstack',
-    url: 'https://www.pillarstack.com',
+    label: 'Shiuli (Live)',
+    url: 'https://shiuli.vercel.app',
   },
   {
-    label: 'Figma Template',
-    url: 'https://www.figma.com/community/file/1328038510191576951/project-starter-template',
+    label: 'GitHub Profile',
+    url: 'https://github.com/rono-007',
+  },
+  {
+    label: 'LinkedIn Profile',
+    url: 'https://www.linkedin.com/in/Ranajoy-Nag',
   },
 ];
 
 const heroText =
-  'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.';
+  "I'm Ranajoy Nag, an AI Engineer and Full-Stack Developer passionate about building intelligent systems and meaningful digital products.";
 
-const locationPlace = `15°22'22.0"N 44°10'39.5"E`;
-const locationCountry = 'Yemen, Sanaa';
+const locationPlace = `22°34'22.0"N 88°21'50.0"E`;
+const locationCountry = 'Kolkata, West Bengal, India';
 
 // cal.com
 const dataCalNamespace = '30min';
-const dataCalLink = 'brhoom/30min';
+const dataCalLink = '';
 const dataCalConfig =
   '{"layout":"month_view", "theme": "dark", "brand": "#8C8C73"}';
 

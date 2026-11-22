@@ -54,8 +54,8 @@
           <Link
             class="font-medium tracking-wider"
             tag="p"
-            label="hetari4all@gmail.com"
-            url="mailto:hetari4all@gmail.com"
+            label="iemrono2022@gmail.com"
+            url="mailto:iemrono2022@gmail.com"
           />
           <div class="mt-6 flex flex-wrap justify-start gap-1">
             <Button
@@ -87,7 +87,7 @@
             id="name"
             class="font-fancy flex items-start text-xl font-extrabold uppercase md:text-3xl"
           >
-            hetari
+            Ranajoy
             <span
               class="font-fancy inline! origin-center! text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
               >&copy;</span
@@ -100,8 +100,8 @@
         <p
           class="heading-6 font-fancy text-flax-smoke-400 hidden font-bold uppercase select-none md:block"
         >
-          available for freelancers <br />
-          work and collaboration
+          available for AI & full-stack <br />
+          engineering & collaboration
         </p>
       </div>
       <div class="flex">
